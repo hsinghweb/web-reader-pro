@@ -414,12 +414,35 @@ class WebReader {
     this.updateProgress();
     
     try {
-      // Clear saved content before loading new content
+      // Clear saved content
       await chrome.storage.local.remove(['savedContent']);
       
-      // Load new content
-      await this.loadPageContent();
-      this.status.textContent = 'Content reloaded';
+      // Get current tab content
+      const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+      chrome.tabs.sendMessage(tab.id, { action: 'getPageContent' }, (response) => {
+        if (response && response.content) {
+          this.words = response.content.split(/\s+/);
+          this.totalWords = this.words.length;
+          this.displayContent(this.words);
+          this.status.textContent = 'Content reloaded';
+          this.updateProgress();
+          this.updateTimeEstimate();
+          
+          // Save new content
+          chrome.storage.local.set({
+            savedContent: {
+              words: this.words,
+              timestamp: Date.now()
+            }
+          });
+          
+          chrome.runtime.sendMessage({
+            action: 'setContent',
+            words: this.words,
+            tabId: tab.id
+          });
+        }
+      });
     } catch (error) {
       this.status.textContent = 'Failed to reload content';
     } finally {

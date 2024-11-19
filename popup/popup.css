@@ -217,6 +217,7 @@
   cursor: not-allowed;
 }
 
+/* Add these styles for the reload button */
 .reload-btn {
   min-width: 70px !important;
   background: #2196F3 !important;

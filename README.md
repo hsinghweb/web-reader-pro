@@ -7,7 +7,7 @@ A powerful Chrome extension that converts webpage text into speech with synchron
 - **Text-to-Speech**: Reads webpage content aloud with natural voice
 - **Synchronized Highlighting**: Highlights words as they are being read
 - **Playback Controls**:
-  - Play/Pause button for easy control
+  - Play/Pause toggle button for easy control
   - Forward (>>) and Backward (<<) buttons to jump 10 words
   - Speed control slider (0.5x to 2x speed)
   - Reload button to refresh content from current tab
@@ -24,7 +24,7 @@ A powerful Chrome extension that converts webpage text into speech with synchron
 - **State Persistence**:
   - Maintains reading position between popup opens
   - Remembers content when switching tabs
-  - Only reloads content when explicitly requested
+  - Updates content only when Reload button is pressed
 
 ## Installation
 
@@ -41,8 +41,9 @@ A powerful Chrome extension that converts webpage text into speech with synchron
    - Adjust reading speed
    - Change font size
    - Navigate through the text
-   - Reload content from current tab
+   - Click "Reload" to refresh content from current tab
 4. Double-click any word to jump to that position
 5. Use forward/backward buttons to move by 10 words
+6. Content persists between tab switches until manually reloaded
 
-## Project Structure 
+## Project Structure
