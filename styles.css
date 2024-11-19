@@ -1,0 +1,12 @@
+#reading-container {
+  /* Prevent any page movement */
+  position: relative;
+  overflow: hidden;
+}
+
+.highlight {
+  background-color: #ffeb3b;
+  border-radius: 3px;
+  padding: 2px;
+  transition: background-color 0.3s ease;
+} 

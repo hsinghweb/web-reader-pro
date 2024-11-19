@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Web Reader Pro</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="controls">
+      <button id="backwardButton" class="control-btn nav-btn" title="Back 10 words">
+        &lt;&lt;
+      </button>
+      <button id="playPauseButton" class="control-btn">
+        PLAY
+      </button>
+      <button id="forwardButton" class="control-btn nav-btn" title="Forward 10 words">
+        &gt;&gt;
+      </button>
+      <div class="speed-control">
+        <input type="range" id="speedSlider" min="0.5" max="2" step="0.1" value="1">
+        <span id="speedValue">1x</span>
+      </div>
+      <button id="reloadButton" class="control-btn reload-btn" title="Reload content from current tab">
+        Reload
+      </button>
+    </div>
+    
+    <div class="progress-info">
+      <div class="progress-bar">
+        <div class="progress-text">Progress: <span id="progressPercent">0%</span></div>
+        <div class="progress-track">
+          <div id="progressFill" class="progress-fill"></div>
+        </div>
+      </div>
+      <div class="time-estimate">
+        Time remaining: <span id="timeEstimate">0:00</span>
+      </div>
+    </div>
+    
+    <div class="font-controls">
+      <span>Font Size:</span>
+      <div class="font-buttons">
+        <button id="smallFont" class="font-btn">Small</button>
+        <button id="mediumFont" class="font-btn active">Medium</button>
+        <button id="largeFont" class="font-btn">Large</button>
+      </div>
+    </div>
+    
+    <div class="content-box">
+      <div id="textContent" class="text-content font-medium"></div>
+    </div>
+    
+    <div class="status-bar">
+      <span id="status">Ready</span>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html> 
